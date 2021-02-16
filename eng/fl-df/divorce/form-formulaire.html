@@ -251,246 +251,169 @@
         <p>Under the <cite>Privacy Act</cite>, you have the right to access your personal information retained by the Central Registry of Divorce Proceedings and to request corrections to it. Where correction is not possible, you have the right to request that a notation be attached to the information reflecting any correction requested but not made. If you require clarification about this <cite>Privacy Act</cite> Notice Statement, please contact our Access to Information and Privacy Office at <a href="mailto:ATIP-AIP@justice.gc.ca">ATIP-AIP@justice.gc.ca</a> or by phone at 613-907-3700. Please note that you have the right to file a complaint to the Office of the Privacy Commissioner of Canada regarding our handling of your personal information. For more information please visit the Office of the Privacy Commissioner’s website at <a href="https://www.priv.gc.ca/">www.priv.gc.ca</a> or contact the Office by phone at 1-800-281-1376.</p>
     </section>
 
-    <div class="wb-frmvld mrgn-lft-lg mrgn-rght-lg printsmall printfullWidth">
-        <form name="form1" action="#" method="post">
-            <div class="well printwell printfullWidth">
-                <p class="printsmall">The completed form is to be sent by the court within 7 days of the date on which the application for divorce is filed to the Central Registry of Divorce Proceedings, 284 Wellington St., Ottawa , Ontario, K1A 0H8</p>
-                <p class="printsmall"><strong>For Court Use Only</strong></p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th scope="col">&nbsp;</th>
-                            <th scope="col"><span class="printLeftPadding">Court Number</span></th>
-                            <th scope="col"><span class="printLeftPadding">Divorce Registry Number</span></th>
-                        </tr>
-                        <tr>
-                            <td class="printNoMarginBottom printsmall">Location where application for<br>divorce is filed/transferred to</td>
-                            <td class="printNoMarginBottom">
-                                <div class="form-group printNoMarginBottom">
-                                    <label for="txtCourtNo" class="wb-invisible"><span class="field-name printsmall">Date application for divorce is filed/transferred to</span> <span class="datepicker-format printsmall">(YYYY-MM-DD)</span></label>
-                                    <input class="form-control printsmallControl" id="txtCourtNo" name="txtCourtNo" type="text" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d]/,'')" />
-                                </div>
-                            </td>
-                            <td class="printNoMarginBottom">
-                                <div class="form-group printNoMarginBottom">
-                                    <label for="txtRegNo" class="wb-invisible"><span class="field-name printsmall">2. Date of marriage</span><span class="datepicker-format printsmall">(YYYY-MM-DD)</span></label>
-                                    <input class="form-control printsmallControl" id="txtRegNo" name="txtRegNo" type="text" maxlength="6" onkeyup="this.value=this.value.replace(/[^\d]/,'')" />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="printsmallHeader printsmall">Divorce Proceedings transferred from:</td>
-                            <td class="printNoMarginBottom">
-                                <div class="form-group printNoMarginBottom">
-                                    <label for="txtTransferCourtNo" class="wb-invisible"><span class="field-name printsmall">Date application for divorce is filed/transferred to</span> <strong class="required printsmall">(required)</strong> <span class="datepicker-format printsmall">(YYYY-MM-DD)</span></label>
-                                    <input class="form-control printsmallControl" id="txtTransferCourtNo" name="txtTransferCourtNo" type="text" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d]/,'')" />
-                                </div>
-                            </td>
-                            <td class="printNoMarginBottom">
-                                <div class="form-group printNoMarginBottom">
-                                    <label for="txtTransferRegNo" class="required wb-invisible"><span class="field-name">2. Date of marriage</span> <strong class="required">(required)</strong><span class="datepicker-format printsmall"> (YYYY-MM-DD)</span></label>
-                                    <input class="form-control printsmallControl" id="txtTransferRegNo" name="txtTransferRegNo" type="text" maxlength="6" onkeyup="this.value=this.value.replace(/[^\d]/,'')" />
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="clearfix"></div>
+    <div class="well">
+        <p><strong>For Court Use Only</strong></p>
+        <p>The court shall send the completed form to the Central Registry of Divorce Proceedings, 284 Wellington Street Ottawa ON K1A 0H8 within <strong>7 days of the date on which the application for divorce is filed</strong>.</p>
 
-                <fieldset class="form-inline printsmallHeader">
-                    <legend class="h5 printsmallHeader"><span class="field-name printsmall">The prescribed fees are</span>:</legend>
-                    <div class="radio">
-                        <label for="rbInvQuart" class="printsmall"><input type="radio" name="animal" value="2" id="rbInvQuart" class="printsmall" />&#160;&#160;Invoiced Quarterly</label>
-                    </div>
-                    <div class="radio">
-                        <label for="rbExempt" class="printsmall"><input type="radio" name="animal" value="3" id="rbExempt" class="printsmall" />&#160;&#160;Exempt</label>
-                    </div>
-                    <div class="radio">
-                        <label for="rbExemptAppTrans" class="printsmall"><input type="radio" name="animal" value="4" id="rbExemptAppTrans" class="printsmall" />&#160;&#160;Exempt-Application transferred</label>
-                    </div>
-                </fieldset>
+        <fieldset class="brdr-0">
+            <legend class="h5">Location where application for divorce is filed/transfered:</legend>
+
+            <div class="form-group">
+                <label for="CourtNoTo">Court Number:</label>
+                <input id="CourtNoTo" type="text" class="form-control" maxlength="4" size="4">
             </div>
-
-            <h2 class="printsmallHeader">Information to be provided below relates to the divorce application</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="printnoPadding">
-                            <div class="form-group printNoMarginBottom">
-                                <label for="txtProvince" class="required"><span class="field-name printsmall">1. Province/Territory</span> <strong class="required printsmall">(required)</strong></label>
-                                <br><br class="no-print">
-                                <input class="form-control printsmallControl" id="txtProvince" name="txtProvince" type="text" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ',.-]/,'')" required="required" />
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group printNoMarginBottom">
-                                <label for="txtDateFiled" class="required"><span class="field-name printsmall">Date application for divorce is filed/transferred to</span> <strong class="required printsmall">(required)</strong><span class="datepicker-format printsmall">(YYYY-MM-DD)</span></label>
-                                <br><br>
-                                <input class="form-control printsmallControl" id="txtDateFiled" name="txtDateFiled" type="text" maxlength="10" onkeyup="this.value=this.value.replace(/[^0-9-]/,'')" required="required" />
-                            </div>
-                        </td>
-                        <td class="printnoPadding">
-                            <div class="form-group printNoMarginBottom">
-                                <label for="txtDateFiled" class="required"><span class="field-name printsmall">2. Date of marriage</span> <strong class="required printsmall">(required)</strong><span class="datepicker-format printsmall">(YYYY-MM-DD)</span></label>
-                                <br><br>
-                                <input class="form-control printsmallControl" id="txtDateofMarriage" name="txtDateofMarriage" type="text" maxlength="10" onkeyup="this.value=this.value.replace(/[^0-9-]/,'')" required="required" />
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="row mrgn-tp-lg printsmallHeader">
-                <div class="col-xs-6 brdr-lft brdr-rght brdr-tp brdr-bttm">
-                    <h2 class="printsmallHeader">Applicant / Joint Applicant 1</h2>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <fieldset class="printsmallHeader">
-                                <legend class="required h5 printsmallHeader"><span class="field-name printsmall">3. Applicant or Joint Applicant</span> <strong class="required printsmall">(required)</strong></legend>
-                                <div class="radio">
-                                    <label for="rbApplicant" class="printsmall"><input type="radio" name="rbApplicant" value="ApplicantJointApplicant1" id="rbApplicant" required="required" />&#160;&#160;Applicant </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="rbApplicantJoint" class="printsmall"><input type="radio" name="rbApplicant" value="JointApplicant1" id="rbApplicantJoint" />&#160;&#160;Joint Applicant</label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-xs-6">
-                            <fieldset class="printsmallHeader">
-                                <legend class="required h5 printsmallHeader"><span class="field-name printsmall">Gender</span> <strong class="required printsmall">(required)</strong></legend>
-                                <div class="radio">
-                                    <label for="rbApplicantMale" class="printsmall"><input type="radio" name="rbApplicantGender" value="Gender Male" id="rbApplicantMale" required="required" />&#160;&#160;Male </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="rbApplicantFemale" class="printsmall"><input type="radio" name="rbApplicantGender" value="Gender Female" id="rbApplicantFemale" />&#160;&#160;Female</label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="clearfix"></div>
-
-                        <div class="form-horizontal">
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtApplicantSurname" class="col-md-6 control-label required printsmall"><span class="field-name printsmall">4. Surname (at birth)</span> <strong class="required printsmall">(required)</strong></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtApplicantSurname" name="txtApplicantSurname" required="required" type="text" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ',.-]/,'')" />
-                                </div>
-                            </div>
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtApplicantGivenName" class="col-md-6 control-label required printsmall"><span class="field-name printsmall">5. Given name(s) (at birth)</span> <strong class="required printsmall">(required)</strong></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtApplicantGivenName" name="txtApplicantGivenName" required="required" type="text" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ',.-]/,'')" />
-                                </div>
-                            </div>
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtApplicantMiddleName" class="col-md-6 control-label printsmall"><span class="field-name printsmall">6. Other given name(s)</span></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtApplicantMiddleName" name="txtApplicantMiddleName" type="text" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ',.-]/,'')" />
-                                </div>
-                            </div>
-
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtApplicantDateofBirth" class="col-md-6 control-label printsmall"><span class="field-name printsmall">7. Date of birth</span> <span class="datepicker-format printsmall">(YYYY-MM-DD)</span></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtApplicantDateofBirth" name="txtApplicantDateofBirth" type="text" maxlength="10" onkeyup="this.value=this.value.replace(/[^0-9-]/,'')" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-6 brdr-rght brdr-tp brdr-bttm">
-                    <h2 class="printsmallHeader">Respondent / Joint Applicant 2</h2>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <fieldset class="printsmallHeader">
-                                <legend class="required h5 printsmallHeader"><span class="field-name printsmall">3. Applicant or Joint Applicant</span> <strong class="required printsmall">(required)</strong></legend>
-                                <div class="radio">
-                                    <label for="rbRespondent" class="printsmall"><input type="radio" name="rbRespondent" value="Respondent" id="rbRespondent" required="required" />&#160;&#160;Respondent </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="rbRespondentJoint" class="printsmall"><input type="radio" name="rbRespondent" value="Joint Applicant 2" id="rbRespondentJoint" />&#160;&#160;Joint Applicant</label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-xs-6">
-                            <fieldset class="printsmallHeader">
-                                <legend class="required h5 printsmallHeader"><span class="field-name printsmall">Gender</span> <strong class="required printsmall">(required)</strong></legend>
-                                <div class="radio">
-                                    <label for="rbRespondentMale" class="printsmall"><input type="radio" name="rbRespondentGender" value="GenderMale" id="rbRespondentMale" required="required" />&#160;&#160;Male </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="rbRespondentFemale" class="printsmall"><input type="radio" name="rbRespondentGender" value="Gender Female 2" id="rbRespondentFemale" />&#160;&#160;Female</label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="clearfix"></div>
-
-                        <div class="form-horizontal">
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtRespondentSurname" class="col-md-6 control-label required printsmall"><span class="field-name printsmall">4. Surname (at birth)</span> <strong class="required printsmall">(required)</strong></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtRespondentSurname" name="txtRespondentSurname" type="text" required="required" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ',.-]/,'')" />
-                                </div>
-                            </div>
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtRespondentGivenName" class="col-md-6 control-label required printsmall"><span class="field-name printsmall">5. Given name(s) (at birth)</span> <strong class="required printsmall">(required)</strong></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtRespondentGivenName" name="txtRespondentGivenName" type="text" required="required" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ',.-]/,'')" />
-                                </div>
-                            </div>
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtRespondentMiddleName" class="col-md-6 control-label printsmall"><span class="field-name printsmall">6. Other given name(s)</span></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtRespondentMiddleName" name="txtRespondentMiddleName" type="text" maxlength="30" onkeyup="this.value=this.value.replace(/[^a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ',.-]/,'')" />
-                                </div>
-                            </div>
-                            <div class="form-group printNoMarginBottom specialHeight">
-                                <label for="txtRespondentDateofBirth" class="col-md-6 control-label"><span class="field-name printsmall">7. Date of birth</span> <span class="datepicker-format printsmall"> (YYYY-MM-DD)</span></label>
-                                <div class="col-md-6">
-                                    <input class="form-control printsmallControl" id="txtRespondentDateofBirth" name="txtRespondentDateofBirth" type="text" maxlength="10" onkeyup="this.value=this.value.replace(/[^0-9-]/,'')" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="RegistryNoTo">Divorce Registry Number:</label>
+                <input id="RegistryNoTo" type="text" class="form-control" maxlength="6" size="6">
             </div>
-            <div class="clearfix"></div>
+        </fieldset>
 
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            <label for="signature"><span class="field-name printsmall">Signature of Court Official</span></label>
-                            <br><br>
-                            ______________________________________________________
-                        </td>
-                        <td>
-                            <div class="form-group printNoMarginBottom">
-                                <label for="txtDateSigned" class="required printsmall"><span class="field-name printsmall">Date signed</span> <strong class="required printsmall">(required)</strong><span class="datepicker-format printsmall">(YYYY-MM-DD)</span></label>
-                                <br><br>
-                                <input class="form-control printsmallControl" id="txtDateSigned" name="txtDateSigned" type="text" maxlength="10" onkeyup="this.value=this.value.replace(/[^0-9-]/,'')" required="required" />
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <fieldset class="brdr-0">
+            <legend class="h5">Divorce Proceeding transferred from:</legend>
 
-            <div class="no-border">
-                <div id="qrcode" style="width:100px; height:100px; margin-top:10px;" class="pull-right"></div>
-                <div class="clearfix"></div>
-
-                <table>
-                    <tr>
-                        <td>
-                            <p class="mrgn-tp-lg"><input type="submit" class="btn btn-primary no-print" id="btnPrint" value="Print" />&nbsp;<input type="submit" class="btn btn-primary no-print" id="btnClear" value="Clear" /></p>
-                        </td>
-                    </tr>
-                </table>
+            <div class="form-group">
+                <label for="CourtNoFrom">Court Number:</label>
+                <input id="CourtNoFrom" type="text" class="form-control" maxlength="4" size="4">
             </div>
-        </form>
+            <div class="form-group">
+                <label for="RegistryNoFrom">Divorce Registry Number:</label>
+                <input id="RegistryNoFrom" type="text" class="form-control" maxlength="6" size="6">
+            </div>
+        </fieldset>
+
+        <fieldset class="brdr-0">
+            <legend class="h5">The prescribed fees are:</legend>
+            
+            <div class="radio">
+				<label for="FeeQuarterly"><input type="radio" id="FeeQuarterly" name="feetype">Invoiced Quarterly</label>
+			</div>
+			<div class="radio">
+				<label for="FeeExempt"><input type="radio" id="FeeExempt" name="feetype">Exempt</label>
+			</div>
+			<div class="radio">
+				<label for="FeeTransferred"><input type="radio" id="FeeTransferred" name="feetype">Exempt-Application transferred</label>
+			</div>
+        </fieldset>
     </div>
+
+    <p>Information to be provided below <strong>is required</strong> and relates to the divorce application</p>
+
+    <div class="form-group">
+        <label for="Province" class="required">Province/Territory <strong class="required">(required)</strong>:</label>
+        <input id="Province" type="text" class="form-control" size="30" required="required">
+    </div>
+    <div class="form-group">
+        <label for="DateFiled" class="required">Date application for divorce is filed/transferred <strong class="required">(required)</strong>:</label>
+        <input id="DateFiled" type="date" class="form-control" required="required">
+    </div>
+    <div class="form-group">
+        <label for="DateMarriage" class="required">Date of marriage <strong class="required">(required)</strong>:</label>
+        <input id="DateMarriage" type="date" class="form-control" size="10" required="required">
+    </div>
+
+    <fieldset>
+        <legend class="h4">Applicant / Joint Applicant 1</legend>
+        <div class="clearfix"></div>
+
+        <fieldset class="brdr-0">
+            <legend class="h5 mrgn-tp-0 required">Applicant / Joint Applicant <strong class="required">(required)</strong>:</legend>
+            
+            <div class="radio">
+				<label for="Applicant1"><input type="radio" id="Applicant1" name="Applicant1Type" required="required">Applicant</label>
+			</div>
+			<div class="radio">
+				<label for="JointApplicant1"><input type="radio" id="JointApplicant1" name="Applicant1Type" required="required">Joint Applicant</label>
+			</div>
+        </fieldset>
+
+        <fieldset class="brdr-0">
+            <legend class="h5 mrgn-tp-0 required">Gender on the day before the day of the marriage <strong class="required">(required)</strong>:</legend>
+
+            <div class="radio">
+                <label for="Applicant1Male"><input type="radio" id="Applicant1Male" name="Applicant1Gender" required="required">Male</label>
+            </div>
+            <div class="radio">
+                <label for="Applicant1Female"><input type="radio" id="Applicant1Female" name="Applicant1Gender" required="required">Female</label>
+            </div>
+            <div class="radio">
+                <label for="Applicant1Another"><input type="radio" id="Applicant1Another" name="Applicant1Gender" required="required">Another gender</label>
+            </div>
+            <div class="radio">
+                <label for="Applicant1NotAvailable"><input type="radio" id="Applicant1NotAvailable" name="Applicant1Gender" required="required">Information not available</label>
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            <label for="Applicant1Surname" class="required">Surname on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+            <input id="Applicant1Surname" type="text" class="form-control" size="60" required="required">
+        </div>
+        <div class="form-group">
+            <label for="Applicant1GivenNames" class="required">Given names on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+            <input id="Applicant1GivenNames" type="text" class="form-control" size="60" required="required">
+        </div>
+        <div class="form-group">
+            <label for="Applicant1DateBirth" class="required">Date of birth <strong class="required">(required)</strong>:</label>
+            <input id="Applicant1DateBirth" type="date" class="form-control" size="10" required="required">
+        </div>
+    </fieldset>
     
-    <div class="hidden-print">
+    <fieldset>
+        <legend class="h4">Respondent / Joint Applicant 2</legend>
+        <div class="clearfix"></div>
+
+        <fieldset class="brdr-0">
+            <legend class="h5 mrgn-tp-0 required">Respondent / Joint Applicant <strong class="required">(required)</strong>:</legend>
+            
+            <div class="radio">
+				<label for="Respondent2"><input type="radio" id="Respondent2" name="Applicant2Type" required="required">Respondent</label>
+			</div>
+			<div class="radio">
+				<label for="JointApplicant2"><input type="radio" id="JointApplicant2" name="Applicant2Type" required="required">Joint Applicant</label>
+			</div>
+        </fieldset>
+
+        <fieldset class="brdr-0">
+            <legend class="h5 mrgn-tp-0 required">Gender on the day before the day of the marriage <strong class="required">(required)</strong>:</legend>
+
+            <div class="radio">
+                <label for="Applicant2Male"><input type="radio" id="Applicant2Male" name="Applicant2Gender" required="required">Male</label>
+            </div>
+            <div class="radio">
+                <label for="Applicant2Female"><input type="radio" id="Applicant2Female" name="Applicant2Gender" required="required">Female</label>
+            </div>
+            <div class="radio">
+                <label for="Applicant2Another"><input type="radio" id="Applicant2Another" name="Applicant2Gender" required="required">Another gender</label>
+            </div>
+            <div class="radio">
+                <label for="Applicant2NotAvailable"><input type="radio" id="Applicant2NotAvailable" name="Applicant2Gender" required="required">Information not available</label>
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            <label for="Applicant2Surname" class="required">Surname on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+            <input id="Applicant2Surname" type="text" class="form-control" size="60" required="required">
+        </div>
+        <div class="form-group">
+            <label for="Applicant2GivenNames" class="required">Given names on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+            <input id="Applicant2GivenNames" type="text" class="form-control" size="60" required="required">
+        </div>
+        <div class="form-group">
+            <label for="Applicant2DateBirth" class="required">Date of birth <strong class="required">(required)</strong>:</label>
+            <input id="Applicant2DateBirth" type="date" class="form-control" size="10" required="required">
+        </div>
+    </fieldset>
+
+    <div class="form-group brdr-tp">
+        <label for="DateSigned" class="required mrgn-tp-xl">Date signed <strong class="required">(required)</strong>:</label>
+        <input id="DateSigned" type="date" class="form-control" size="10" required="required">
+    </div>
+
+    <div id="qrcode" style="width:100px; height:100px; margin-top:10px;"></div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" id="PrintForm" value="Print form">
+        <input type="reset" class="btn btn-secondary" id="ClearFrom" value="Clear form">
+    </div>
     
     <dl id="wb-dtmd" class="no-print">
     <dt>Date modified:&#32;</dt>
@@ -502,10 +425,6 @@
     </dl>
     </main>
     
-    
-    
-    </div>
-    </div>
     <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
     <div class="container">
     <nav role="navigation">
@@ -1069,6 +988,5 @@
     
     </body>
     </html> 
-    </div>
     
     
