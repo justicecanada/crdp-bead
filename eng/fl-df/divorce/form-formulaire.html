@@ -507,41 +507,33 @@
     <!-- ScriptsEnd -->
     
     <!-- CustomScriptsStart -->
-    
-    <SCRIPT type="text/javascript">
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
+    <script type="text/javascript">
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
             width: 150,
             height: 150,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.L
-    
-    });
-    
-    function makeCode() {
-    
-            //alert("Hello");
+        });
+
+        function makeCode() {
             var elText = [];
-            
+
             elText.push("CNo:");
-          elText.push(($("#txtCourtNo").val()) ? $("#txtCourtNo").val() : "0");
+            elText.push(($("#txtCourtNo").val()) ? $("#txtCourtNo").val() : "0");
             elText.push(";");
             elText.push("RNo:");
-          elText.push(($("#txtRegNo").val()) ? $("#txtRegNo").val() : "0");
+            elText.push(($("#txtRegNo").val()) ? $("#txtRegNo").val() : "0");
             elText.push(";");
             elText.push(($("#txtTransferCourtNo").val()) ? "TCNo:" : "");
             elText.push(($("#txtTransferCourtNo").val()) ? $("#txtTransferCourtNo").val() : "");
             elText.push(($("#txtTransferCourtNo").val()) ? ";" : "");
             elText.push(($("#txtTransferRegNo").val()) ? "TRNo:" : "");
             elText.push(($("#txtTransferRegNo").val()) ? $("#txtTransferRegNo").val() : "");
-    
             elText.push(($("#txtTransferRegNo").val()) ? ";" : "");
             elText.push("Fee:");
-    elText.push(($("#rbExempt").prop("checked")||$("#rbExemptAppTrans").prop("checked")) ? "E" : "Q");
+            elText.push(($("#rbExempt").prop("checked") || $("#rbExemptAppTrans").prop("checked")) ? "E" : "Q");
             elText.push(";");
-            //elText.push("Prv:");
-            //elText.push(($("#txtProvince").val()) ? $("#txtProvince").val() : " ");
-            //elText.push(",");
             elText.push("DFl:");
             elText.push(($("#txtDateFiled").val()) ? $("#txtDateFiled").val() : " ");
             elText.push(";");
@@ -561,7 +553,7 @@
             elText.push("AGne:");
             elText.push(($("#txtApplicantGivenName").val()) ? $("#txtApplicantGivenName").val() : " ");
             elText.push(";");
-           elText.push(($("#txtApplicantMiddleName").val()) ? "AMne:" : "");
+            elText.push(($("#txtApplicantMiddleName").val()) ? "AMne:" : "");
             elText.push(($("#txtApplicantMiddleName").val()) ? $("#txtApplicantMiddleName").val() : "");
             elText.push(($("#txtApplicantMiddleName").val()) ? ";" : "");
             elText.push(($("#txtApplicantDateofBirth").val()) ? "ADob:" : "");
@@ -585,399 +577,333 @@
             elText.push(($("#txtRespondentDateofBirth").val()) ? ";" : "");
             elText.push("Dsi:");
             elText.push(($("#txtDateSigned").val()) ? $("#txtDateSigned").val() : " ");
-    
-            //alert(elText.join(""));
+
             qrcode.makeCode(elText.join(""));
-    
-                  setAllCookies();
-                  
-    
-            //makeCode();
-    }
-    //validation with the date fields
-    
-    $("input[id*='txt']").blur(function ()
-    {
-                    if ($(this).attr('id').indexOf("Date") > -1)
-                    {
-                                    if (isValidDate($(this).val()))
-                                    {                                                              
-                                                    if ($(this).attr('id').indexOf("DateofBirth") > -1 || $(this).attr('id').indexOf("DateofMarriage") > -1)
-                                                    {
-                                                                    if ($("#txtApplicantDateofBirth").val() && ($("#txtRespondentDateofBirth").val()))
-                                                                    {
-                                                                                    if (calculateAgeAtMarriage($("#txtApplicantDateofBirth").val()) > 10 && calculateAgeAtMarriage($("#txtRespondentDateofBirth").val()) > 10)
-                                                                                    {
-                                                                                                    makeCode();
-                                                                                                    //return true;
-                                                                                                    isValidMarriageDate(this);
-                                                                                    }
-                                                                                    else
-                                                                                    {
-                                                                                                    //                            alert($(this).id);
-                                                                                                    alert("Invalid birthdate. Must be older than 11 years old.  \n\n" + $(this).val());
-                                                                                                    //                            //alert("Invalid date format (YYYY-MM-DD) \n\n" + $(this).val());
-                                                                                                    //                            //$(this).attr('value') = "";
-                                                                                                    setTimeout(function () { $(this).focus(); }, 0);
-                                                                                                    //                            //$(this).attr('value') = "";
-                                                                                                    document.getElementById($(this).attr('id')).value = "";
-                                                                                                    $(this).select();
-                                                                                                    return false;
-                                                                                    }
-                                                                    }
-                                                                    else if ($("#txtApplicantDateofBirth").val() && !($("#txtRespondentDateofBirth").val()))
-                                                                    {
-                                                                                    if (calculateAgeAtMarriage($("#txtApplicantDateofBirth").val()) > 10) 
-                                                                                    {
-                                                                                                    makeCode();
-                                                                                                    //return true;
-                                                                                                    isValidMarriageDate(this);
-                                                                                    }
-                                                                                    else
-                                                                                    {
-                                                                                                    //                            alert($(this).id);
-                                                                                                    alert("Invalid birthdate. Must be older than 11 years old.  \n\n" + $(this).val());
-                                                                                                    //                            //alert("Invalid date format (YYYY-MM-DD) \n\n" + $(this).val());
-                                                                                                    //                            //$(this).attr('value') = "";
-                                                                                                    setTimeout(function () { $(this).focus(); }, 0);
-                                                                                                    //                            //$(this).attr('value') = "";
-                                                                                                    document.getElementById($(this).attr('id')).value = "";
-                                                                                                    $(this).select();
-                                                                                                    return false;
-                                                                                    }
-                                                                    }
-                                                                    else if (!($("#txtApplicantDateofBirth").val()) && ($("#txtRespondentDateofBirth").val()))
-                                                                    {
-                                                                                    if (calculateAgeAtMarriage($("#txtRespondentDateofBirth").val()) > 10)
-                                                                                    {
-                                                                                                    makeCode();
-                                                                                                    //return true;
-                                                                                                    isValidMarriageDate(this);
-                                                                                    }
-                                                                                    else
-                                                                                    {
-                                                                                                    //                            alert($(this).id);
-                                                                                                    alert("Invalid birthdate. Must be older than 11 years old.  \n\n" + $(this).val());
-                                                                                                    //                            //alert("Invalid date format (YYYY-MM-DD) \n\n" + $(this).val());
-                                                                                                    //                            //$(this).attr('value') = "";
-                                                                                                    setTimeout(function () { $(this).focus(); }, 0);
-                                                                                                    //                            //$(this).attr('value') = "";
-                                                                                                    document.getElementById($(this).attr('id')).value = "";
-                                                                                                    $(this).select();
-                                                                                                    return false;
-                                                                                    }
-                                                                    }
-                                    
-                                                                                                    
-                                                    }
-                                                    if ($(this).attr('id').indexOf("DateFiled") > -1 || $(this).attr('id').indexOf("DateofMarriage") > -1)
-                                                    {
-                                                                    isValidMarriageDate(this);
-                                                    }
-                                                    else
-                                                    {
-                                                                    makeCode();
-                                                                    return true;                                        
-                                                    }              
-                                    }
-                                    else
-                                    {
-                                                    if ($(this).val() == "")
-                                                    {
-                                                                    makeCode();
-                                                                    return true;
-                                                    }
-                                                    else
-                                                    {
-                                                                    alert("Invalid date format (YYYY-MM-DD) \n\n" + $(this).val());
-                                                                    //alert("Invalid date format (YYYY-MM-DD) \n\n" + $(this).val());
-                                                                    //$(this).attr('value') = "";
-                                                                    setTimeout(function () { $(this).focus(); }, 0);
-                                                                    //$(this).attr('value') = "";
-                                                                    document.getElementById($(this).attr('id')).value = "";
-                                                                    $(this).select();
-                                                                    return false;
-                                                    }
-                                    }
+
+            setAllCookies();
+        }
+
+        $("input[id*='txt']").blur(function () {
+            if ($(this).attr('id').indexOf("Date") > -1) {
+                if (isValidDate($(this).val())) {
+                    if ($(this).attr('id').indexOf("DateofBirth") > -1 || $(this).attr('id').indexOf("DateofMarriage") > -1) {
+                        if ($("#txtApplicantDateofBirth").val() && ($("#txtRespondentDateofBirth").val())) {
+                            if (calculateAgeAtMarriage($("#txtApplicantDateofBirth").val()) > 10 && calculateAgeAtMarriage($("#txtRespondentDateofBirth").val()) > 10) {
+                                makeCode();
+                                isValidMarriageDate(this);
+                            } else {
+                                alert("Invalid birthdate. Must be older than 11 years old.  \n\n" + $(this).val());
+                                
+                                setTimeout(function () {
+                                    $(this).focus();
+                                }, 0);
+                                
+                                document.getElementById($(this).attr('id')).value = "";
+                                $(this).select();
+                                
+                                return false;
+                            }
+                        } else if ($("#txtApplicantDateofBirth").val() && !($("#txtRespondentDateofBirth").val())) {
+                            if (calculateAgeAtMarriage($("#txtApplicantDateofBirth").val()) > 10) {
+                                makeCode();
+                                isValidMarriageDate(this);
+                            } else {
+                                alert("Invalid birthdate. Must be older than 11 years old.\n\n" + $(this).val());
+
+                                setTimeout(function () {
+                                    $(this).focus();
+                                }, 0);
+
+                                document.getElementById($(this).attr('id')).value = "";
+                                $(this).select();
+
+                                return false;
+                            }
+                        } else if (!($("#txtApplicantDateofBirth").val()) && ($("#txtRespondentDateofBirth").val())) {
+                            if (calculateAgeAtMarriage($("#txtRespondentDateofBirth").val()) > 10) {
+                                makeCode();
+                                isValidMarriageDate(this);
+                            } else {
+                                alert("Invalid birthdate. Must be older than 11 years old.  \n\n" + $(this).val());
+                                
+                                setTimeout(function () {
+                                    $(this).focus();
+                                }, 0);
+                                
+                                document.getElementById($(this).attr('id')).value = "";
+                                $(this).select();
+                                
+                                return false;
+                            }
+                        }
                     }
-                    else
-                    {
-                                    makeCode();
-                    }   
-    });
-    
-           
-           
-    $("input[id*='rb']").blur(function () {
-    makeCode();
-    });
-    
-    function setAllCookies() {
-    
-           document.cookie = "txtCourtNo=" + encodeURIComponent($("#txtCourtNo").val()) + ";";
-           document.cookie = "txtRegNo=" + encodeURIComponent($("#txtRegNo").val()) + ";";
-           document.cookie = "txtTransferCourtNo=" + encodeURIComponent($("#txtTransferCourtNo").val()) + ";";
-           document.cookie = "txtTransferRegNo=" + encodeURIComponent($("#txtTransferRegNo").val()) + ";";
-           document.cookie = "rbInvQuart=" +   encodeURIComponent($("#rbInvQuart").prop("checked")) + ";";
-           document.cookie = "rbExempt=" +   encodeURIComponent($("#rbExempt").prop("checked")) + ";";
-           document.cookie = "rbExemptAppTrans=" +   encodeURIComponent($("#rbExemptAppTrans").prop("checked")) + ";";
-           document.cookie = "txtDateFiled=" + encodeURIComponent($("#txtDateFiled").val()) + ";"; 
-           document.cookie = "txtDateofMarriage=" + encodeURIComponent($("#txtDateofMarriage").val()) + ";"; 
-           document.cookie = "rbApplicant=" + encodeURIComponent($("#rbApplicant").prop("checked")) + ";";
-           document.cookie = "rbApplicantJoint=" + encodeURIComponent($("#rbApplicantJoint").prop("checked")) + ";";
-           document.cookie = "rbApplicantMale=" + encodeURIComponent($("#rbApplicantMale").prop("checked")) + ";";
-           document.cookie = "rbApplicantFemale=" + encodeURIComponent($("#rbApplicantFemale").prop("checked")) + ";";
-           document.cookie = "txtApplicantSurname=" + encodeURIComponent($("#txtApplicantSurname").val()) + ";";
-           document.cookie = "txtApplicantGivenName=" + encodeURIComponent($("#txtApplicantGivenName").val()) + ";";
-           document.cookie = "txtApplicantMiddleName=" + encodeURIComponent($("#txtApplicantMiddleName").val()) + ";";
-           document.cookie = "txtApplicantDateofBirth=" + encodeURIComponent($("#txtApplicantDateofBirth").val()) + ";";
-           document.cookie = "rbRespondent=" + encodeURIComponent($("#rbRespondent").prop("checked")) + ";";
-           document.cookie = "rbRespondentJoint=" + encodeURIComponent($("#rbRespondentJoint").prop("checked")) + ";";
-           document.cookie = "rbRespondentMale=" + encodeURIComponent($("#rbRespondentMale").prop("checked")) + ";";
-           document.cookie = "rbRespondentFemale=" + encodeURIComponent($("#rbRespondentFemale").prop("checked")) + ";";
-           document.cookie = "txtRespondentSurname=" + encodeURIComponent($("#txtRespondentSurname").val()) + ";";
-           document.cookie = "txtRespondentGivenName=" + encodeURIComponent($("#txtRespondentGivenName").val()) + ";";
-           document.cookie = "txtRespondentMiddleName=" + encodeURIComponent($("#txtRespondentMiddleName").val()) + ";";
-           document.cookie = "txtRespondentDateofBirth=" + encodeURIComponent($("#txtRespondentDateofBirth").val()) + ";";
-           document.cookie = "txtDateSigned=" + encodeURIComponent($("#txtDateSigned").val()) + ";";
-             
-      }
-    
-      
-      function clearCookies() {
-    
-           document.cookie = "txtCourtNo=;";
-           document.cookie = "txtRegNo=;";
-           document.cookie = "txtTransferCourtNo=;";
-           document.cookie = "txtTransferRegNo=;";
-           document.cookie = "rbInvQuart=;"; $("#rbInvQuart").prop("checked", false);
-           document.cookie = "rbExempt=;"; $("#rbExempt").prop("checked", false);
-           document.cookie = "rbExemptAppTrans=;"; $("#rbExemptAppTrans").prop("checked", false);
-           document.cookie = "txtDateFiled=;"; 
-           document.cookie = "txtDateofMarriage=;"; 
-           document.cookie = "rbApplicant=;"; $("#rbApplicant").prop("checked", false);
-           document.cookie = "rbApplicantJoint=;"; $("#rbApplicantJoint").prop("checked", false);
-           document.cookie = "rbApplicantMale=;"; $("#rbApplicantMale").prop("checked", false);
-           document.cookie = "rbApplicantFemale=;"; $("#rbApplicantFemale").prop("checked", false);
-           document.cookie = "txtApplicantSurname=;";
-           document.cookie = "txtApplicantGivenName=;";
-           document.cookie = "txtApplicantMiddleName=;";
-           document.cookie = "txtApplicantDateofBirth=;";
-           document.cookie = "rbRespondent=;"; $("#rbRespondent").prop("checked", false);
-           document.cookie = "rbRespondentJoint=;"; $("#rbRespondentJoint").prop("checked", false);
-           document.cookie = "rbRespondentMale=;"; $("#rbRespondentMale").prop("checked", false);
-           document.cookie = "rbRespondentFemale=;"; $("#rbRespondentFemale").prop("checked", false);
-           document.cookie = "txtRespondentSurname=;";
-           document.cookie = "txtRespondentGivenName=;";
-           document.cookie = "txtRespondentMiddleName=;";
-           document.cookie = "txtRespondentDateofBirth=;";
-           document.cookie = "txtDateSigned=;";
-             
-      }
-      
-      function getCookie(cname) {
-      
-             var name = cname + "=";
-             var decodedCookie = decodeURIComponent(document.cookie);
-             var ca = decodedCookie.split(';');
-             for(var i = 0; i <ca.length; i++) {
-                  var c = ca[i];
-                  while (c.charAt(0) == ' ') {
-                   c = c.substring(1);
-                  }
-                  if (c.indexOf(name) == 0) {
+
+                    if ($(this).attr('id').indexOf("DateFiled") > -1 || $(this).attr('id').indexOf("DateofMarriage") > -1) {
+                        isValidMarriageDate(this);
+                    } else {
+                        makeCode();
+
+                        return true;
+                    }
+                } else {
+                    if ($(this).val() == "") {
+                        makeCode();
+                        return true;
+                    } else {
+                        alert("Invalid date format (YYYY-MM-DD) \n\n" + $(this).val());
+
+                        setTimeout(function () {
+                            $(this).focus();
+                        }, 0);
+
+                        document.getElementById($(this).attr('id')).value = "";
+                        $(this).select();
+
+                        return false;
+                    }
+                }
+            } else {
+                makeCode();
+            }
+        });
+
+        $("input[id*='rb']").blur(function () {
+            makeCode();
+        });
+
+        function setAllCookies() {
+            document.cookie = "txtCourtNo=" + encodeURIComponent($("#txtCourtNo").val()) + ";";
+            document.cookie = "txtRegNo=" + encodeURIComponent($("#txtRegNo").val()) + ";";
+            document.cookie = "txtTransferCourtNo=" + encodeURIComponent($("#txtTransferCourtNo").val()) + ";";
+            document.cookie = "txtTransferRegNo=" + encodeURIComponent($("#txtTransferRegNo").val()) + ";";
+            document.cookie = "rbInvQuart=" + encodeURIComponent($("#rbInvQuart").prop("checked")) + ";";
+            document.cookie = "rbExempt=" + encodeURIComponent($("#rbExempt").prop("checked")) + ";";
+            document.cookie = "rbExemptAppTrans=" + encodeURIComponent($("#rbExemptAppTrans").prop("checked")) + ";";
+            document.cookie = "txtDateFiled=" + encodeURIComponent($("#txtDateFiled").val()) + ";";
+            document.cookie = "txtDateofMarriage=" + encodeURIComponent($("#txtDateofMarriage").val()) + ";";
+            document.cookie = "rbApplicant=" + encodeURIComponent($("#rbApplicant").prop("checked")) + ";";
+            document.cookie = "rbApplicantJoint=" + encodeURIComponent($("#rbApplicantJoint").prop("checked")) + ";";
+            document.cookie = "rbApplicantMale=" + encodeURIComponent($("#rbApplicantMale").prop("checked")) + ";";
+            document.cookie = "rbApplicantFemale=" + encodeURIComponent($("#rbApplicantFemale").prop("checked")) + ";";
+            document.cookie = "txtApplicantSurname=" + encodeURIComponent($("#txtApplicantSurname").val()) + ";";
+            document.cookie = "txtApplicantGivenName=" + encodeURIComponent($("#txtApplicantGivenName").val()) + ";";
+            document.cookie = "txtApplicantMiddleName=" + encodeURIComponent($("#txtApplicantMiddleName").val()) + ";";
+            document.cookie = "txtApplicantDateofBirth=" + encodeURIComponent($("#txtApplicantDateofBirth").val()) + ";";
+            document.cookie = "rbRespondent=" + encodeURIComponent($("#rbRespondent").prop("checked")) + ";";
+            document.cookie = "rbRespondentJoint=" + encodeURIComponent($("#rbRespondentJoint").prop("checked")) + ";";
+            document.cookie = "rbRespondentMale=" + encodeURIComponent($("#rbRespondentMale").prop("checked")) + ";";
+            document.cookie = "rbRespondentFemale=" + encodeURIComponent($("#rbRespondentFemale").prop("checked")) + ";";
+            document.cookie = "txtRespondentSurname=" + encodeURIComponent($("#txtRespondentSurname").val()) + ";";
+            document.cookie = "txtRespondentGivenName=" + encodeURIComponent($("#txtRespondentGivenName").val()) + ";";
+            document.cookie = "txtRespondentMiddleName=" + encodeURIComponent($("#txtRespondentMiddleName").val()) + ";";
+            document.cookie = "txtRespondentDateofBirth=" + encodeURIComponent($("#txtRespondentDateofBirth").val()) + ";";
+            document.cookie = "txtDateSigned=" + encodeURIComponent($("#txtDateSigned").val()) + ";";
+        }
+
+        function clearCookies() {
+            document.cookie = "txtCourtNo=;";
+            document.cookie = "txtRegNo=;";
+            document.cookie = "txtTransferCourtNo=;";
+            document.cookie = "txtTransferRegNo=;";
+            document.cookie = "rbInvQuart=;";
+            $("#rbInvQuart").prop("checked", false);
+            document.cookie = "rbExempt=;";
+            $("#rbExempt").prop("checked", false);
+            document.cookie = "rbExemptAppTrans=;";
+            $("#rbExemptAppTrans").prop("checked", false);
+            document.cookie = "txtDateFiled=;";
+            document.cookie = "txtDateofMarriage=;";
+            document.cookie = "rbApplicant=;";
+            $("#rbApplicant").prop("checked", false);
+            document.cookie = "rbApplicantJoint=;";
+            $("#rbApplicantJoint").prop("checked", false);
+            document.cookie = "rbApplicantMale=;";
+            $("#rbApplicantMale").prop("checked", false);
+            document.cookie = "rbApplicantFemale=;";
+            $("#rbApplicantFemale").prop("checked", false);
+            document.cookie = "txtApplicantSurname=;";
+            document.cookie = "txtApplicantGivenName=;";
+            document.cookie = "txtApplicantMiddleName=;";
+            document.cookie = "txtApplicantDateofBirth=;";
+            document.cookie = "rbRespondent=;";
+            $("#rbRespondent").prop("checked", false);
+            document.cookie = "rbRespondentJoint=;";
+            $("#rbRespondentJoint").prop("checked", false);
+            document.cookie = "rbRespondentMale=;";
+            $("#rbRespondentMale").prop("checked", false);
+            document.cookie = "rbRespondentFemale=;";
+            $("#rbRespondentFemale").prop("checked", false);
+            document.cookie = "txtRespondentSurname=;";
+            document.cookie = "txtRespondentGivenName=;";
+            document.cookie = "txtRespondentMiddleName=;";
+            document.cookie = "txtRespondentDateofBirth=;";
+            document.cookie = "txtDateSigned=;";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+
+                if (c.indexOf(name) == 0) {
                     return c.substring(name.length, c.length);
-                  }
-             }
-             return "";
-      }
-    
-    //radio buttons check
-    
-    $( document ).ready(function() {
-    
-            $(document).on("click","#rbApplicant",function(){
-                $( "#rbRespondent" ).prop("checked", true);
-                $( "#rbRespondentJoint" ).prop("checked", false);
+                }
+            }
+
+            return "";
+        }
+
+        $(document).ready(function () {
+            $(document).on("click", "#rbApplicant", function () {
+                $("#rbRespondent").prop("checked", true);
+                $("#rbRespondentJoint").prop("checked", false);
             });
-    
-     
-          $(document).on("click","#rbRespondent",function(){ 
-             $( "#rbApplicant" ).prop("checked", true);
-             $( "#rbApplicantJoint" ).prop("checked", false);
-              });
-    
-        $(document).on("click","#rbApplicantJoint",function(){ 
-             $( "#rbRespondentJoint" ).prop("checked", true);
-             $( "#rbRespondent" ).prop("checked", false);
-              });
-        
-        $(document).on("click","#rbRespondentJoint",function(){ 
-             $( "#rbApplicantJoint" ).prop("checked", true);
-             $( "#rbApplicant" ).prop("checked", false);
-              });
-    
-          //$( "#rbApplicant" ).prop("checked", false);
-          //$( "#rbRespondent" ).prop("checked", false);
-          //$( "#rbApplicantJoint" ).prop("checked", false);
-          //$( "#rbRespondentJoint" ).prop("checked", false);
-             
-       // reload values
-      // alert(document.cookie);
-       
-       $("#txtCourtNo").val(getCookie("txtCourtNo"));
-       $("#txtRegNo").val(getCookie("txtRegNo"));
-       $("#txtTransferCourtNo").val(getCookie("txtTransferCourtNo"));
-       $("#txtTransferRegNo").val(getCookie("txtTransferRegNo"));
-       if (getCookie("rbInvQuart").toUpperCase() == "TRUE") $("#rbInvQuart").attr("checked", "checked");
-       if (getCookie("rbExempt").toUpperCase() == "TRUE") $("#rbExempt").attr("checked", "checked");
-       if (getCookie("rbExemptAppTrans").toUpperCase() == "TRUE") $("#rbExemptAppTrans").attr("checked", "checked");
-       $("#txtDateFiled").val(getCookie("txtDateFiled"));
-       $("#txtDateofMarriage").val(getCookie("txtDateofMarriage"));
-       
-       if (getCookie("rbApplicant").toUpperCase() == "TRUE") $("#rbApplicant").attr("checked", "checked");
-       if (getCookie("rbApplicantJoint").toUpperCase() == "TRUE") $("#rbApplicantJoint").attr("checked", "checked");
-       if (getCookie("rbApplicantMale").toUpperCase() == "TRUE") $("#rbApplicantMale").attr("checked", "checked");
-       if (getCookie("rbApplicantFemale").toUpperCase() == "TRUE") $("#rbApplicantFemale").attr("checked", "checked");
-       $("#txtApplicantSurname").val(getCookie("txtApplicantSurname"));
-       $("#txtApplicantGivenName").val(getCookie("txtApplicantGivenName"));
-       $("#txtApplicantMiddleName").val(getCookie("txtApplicantMiddleName"));
-       $("#txtApplicantDateofBirth").val(getCookie("txtApplicantDateofBirth"));
-       if (getCookie("rbRespondent").toUpperCase() == "TRUE") $("#rbRespondent").attr("checked", "checked");
-       if (getCookie("rbRespondentJoint").toUpperCase() == "TRUE") $("#rbRespondentJoint").attr("checked", "checked");
-       if (getCookie("rbRespondentMale").toUpperCase() == "TRUE") $("#rbRespondentMale").attr("checked", "checked");
-       if (getCookie("rbRespondentFemale").toUpperCase() == "TRUE") $("#rbRespondentFemale").attr("checked", "checked");
-       $("#txtRespondentSurname").val(getCookie("txtRespondentSurname"));
-       $("#txtRespondentGivenName").val(getCookie("txtRespondentGivenName"));
-       $("#txtRespondentMiddleName").val(getCookie("txtRespondentMiddleName"));
-       $("#txtRespondentDateofBirth").val(getCookie("txtRespondentDateofBirth"));
-       $("#txtDateSigned").val(getCookie("txtDateSigned"));
-       
-    });
-    
-    
-    //radio button selection
-    
-    $("#btnClear").on("click", function (e) {
-           e.preventDefault();
-           clearCookies();
-           location.reload();
-           return false;
-    });
-    
-    //print button script to validation to prevent a print when mandatory fields are missing
-    $("#btnPrint").on("click", function () {
-    if ($("#txtProvince").val() &&
-      $("#txtDateFiled").val() &&
-      $("#txtDateofMarriage").val() &&
-      ($("#rbApplicant").prop("checked") || $("#rbApplicantJoint").prop("checked")) &&
-      ($("#rbApplicantMale").prop("checked") || $("#rbApplicantFemale").prop("checked")) &&
-      $("#txtApplicantSurname").val() &&
-      $("#txtApplicantGivenName").val() &&
-      ($("#rbRespondentMale").prop("checked") || $("#rbRespondentFemale").prop("checked")) &&
-      $("#txtRespondentSurname").val() &&
-      $("#txtRespondentGivenName").val() &&
-      $("#txtDateSigned").val())
-      {
-           //alert('a');
-          window.print();
-             return false; 
-      }
-      else
-      {
-      //alert('b');
-         return true; 
-      }
-    
-    });
-    
-    //Date validation
-    
-    function isValidDate(dateString) {
-          // First check for the pattern
-          //if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
-          if (!/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(dateString))
-              return false;
-    
-          // Parse the date parts to integers
-          var parts = dateString.split("-");
-          var day = parseInt(parts[2], 10);
-          var month = parseInt(parts[1], 10);
-          var year = parseInt(parts[0], 10);
-    
-          // Check the ranges of month and year
-          if (year < 1000 || year > 3000 || month == 0 || month > 12)
-              return false;
-    
-          var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    
-          // Adjust for leap years
-          if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
-              monthLength[1] = 29;
-    
-          // Check the range of the day
-          return day > 0 && day <= monthLength[month - 1];
-      };
-      
-    //Calculate age at marriage
-    
-    function calculateAgeAtMarriage (txtBirthDate) {
-        
-                    if ($("#txtDateofMarriage").val())
-                    {
-                                    var birthDate = new Date(txtBirthDate);
-                                    var dateofMarriage = new Date($("#txtDateofMarriage").val());
-    
-                                    var years = (dateofMarriage.getFullYear() - birthDate.getFullYear());
-    
-                                    if (dateofMarriage.getMonth() < birthDate.getMonth() || dateofMarriage.getMonth() == birthDate.getMonth() && dateofMarriage.getDate() < birthDate.getDate())
-                                    {
-                                                    years--;
-                                    }
-    
-                                    return years;
+
+            $(document).on("click", "#rbRespondent", function () {
+                $("#rbApplicant").prop("checked", true);
+                $("#rbApplicantJoint").prop("checked", false);
+            });
+
+            $(document).on("click", "#rbApplicantJoint", function () {
+                $("#rbRespondentJoint").prop("checked", true);
+                $("#rbRespondent").prop("checked", false);
+            });
+
+            $(document).on("click", "#rbRespondentJoint", function () {
+                $("#rbApplicantJoint").prop("checked", true);
+                $("#rbApplicant").prop("checked", false);
+            });
+
+            $("#txtCourtNo").val(getCookie("txtCourtNo"));
+            $("#txtRegNo").val(getCookie("txtRegNo"));
+            $("#txtTransferCourtNo").val(getCookie("txtTransferCourtNo"));
+            $("#txtTransferRegNo").val(getCookie("txtTransferRegNo"));
+            if (getCookie("rbInvQuart").toUpperCase() == "TRUE") $("#rbInvQuart").attr("checked", "checked");
+            if (getCookie("rbExempt").toUpperCase() == "TRUE") $("#rbExempt").attr("checked", "checked");
+            if (getCookie("rbExemptAppTrans").toUpperCase() == "TRUE") $("#rbExemptAppTrans").attr("checked", "checked");
+            $("#txtDateFiled").val(getCookie("txtDateFiled"));
+            $("#txtDateofMarriage").val(getCookie("txtDateofMarriage"));
+            if (getCookie("rbApplicant").toUpperCase() == "TRUE") $("#rbApplicant").attr("checked", "checked");
+            if (getCookie("rbApplicantJoint").toUpperCase() == "TRUE") $("#rbApplicantJoint").attr("checked", "checked");
+            if (getCookie("rbApplicantMale").toUpperCase() == "TRUE") $("#rbApplicantMale").attr("checked", "checked");
+            if (getCookie("rbApplicantFemale").toUpperCase() == "TRUE") $("#rbApplicantFemale").attr("checked", "checked");
+            $("#txtApplicantSurname").val(getCookie("txtApplicantSurname"));
+            $("#txtApplicantGivenName").val(getCookie("txtApplicantGivenName"));
+            $("#txtApplicantMiddleName").val(getCookie("txtApplicantMiddleName"));
+            $("#txtApplicantDateofBirth").val(getCookie("txtApplicantDateofBirth"));
+            if (getCookie("rbRespondent").toUpperCase() == "TRUE") $("#rbRespondent").attr("checked", "checked");
+            if (getCookie("rbRespondentJoint").toUpperCase() == "TRUE") $("#rbRespondentJoint").attr("checked", "checked");
+            if (getCookie("rbRespondentMale").toUpperCase() == "TRUE") $("#rbRespondentMale").attr("checked", "checked");
+            if (getCookie("rbRespondentFemale").toUpperCase() == "TRUE") $("#rbRespondentFemale").attr("checked", "checked");
+            $("#txtRespondentSurname").val(getCookie("txtRespondentSurname"));
+            $("#txtRespondentGivenName").val(getCookie("txtRespondentGivenName"));
+            $("#txtRespondentMiddleName").val(getCookie("txtRespondentMiddleName"));
+            $("#txtRespondentDateofBirth").val(getCookie("txtRespondentDateofBirth"));
+            $("#txtDateSigned").val(getCookie("txtDateSigned"));
+        });
+
+        $("#btnClear").on("click", function (e) {
+            e.preventDefault();
+            clearCookies();
+            location.reload();
+
+            return false;
+        });
+
+        $("#btnPrint").on("click", function () {
+            if ($("#txtProvince").val() &&
+                $("#txtDateFiled").val() &&
+                $("#txtDateofMarriage").val() &&
+                ($("#rbApplicant").prop("checked") || $("#rbApplicantJoint").prop("checked")) &&
+                ($("#rbApplicantMale").prop("checked") || $("#rbApplicantFemale").prop("checked")) &&
+                $("#txtApplicantSurname").val() &&
+                $("#txtApplicantGivenName").val() &&
+                ($("#rbRespondentMale").prop("checked") || $("#rbRespondentFemale").prop("checked")) &&
+                $("#txtRespondentSurname").val() &&
+                $("#txtRespondentGivenName").val() &&
+                $("#txtDateSigned").val()) {
+                window.print();
+
+                return false;
+            } else {
+                return true;
+            }
+        });
+
+        function isValidDate(dateString) {
+            if (!/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(dateString)) {
+                return false;
+            }
+
+            var parts = dateString.split("-");
+            var day = parseInt(parts[2], 10);
+            var month = parseInt(parts[1], 10);
+            var year = parseInt(parts[0], 10);
+
+            if (year < 1000 || year > 3000 || month == 0 || month > 12) {
+                return false;
+            }
+
+            var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+                monthLength[1] = 29;
+            }
+
+            return day > 0 && day <= monthLength[month - 1];
+        };
+
+        function calculateAgeAtMarriage(txtBirthDate) {
+            if ($("#txtDateofMarriage").val()) {
+                var birthDate = new Date(txtBirthDate);
+                var dateofMarriage = new Date($("#txtDateofMarriage").val());
+
+                var years = (dateofMarriage.getFullYear() - birthDate.getFullYear());
+
+                if (dateofMarriage.getMonth() < birthDate.getMonth() || dateofMarriage.getMonth() == birthDate.getMonth() && dateofMarriage.getDate() < birthDate.getDate()) {
+                    years--;
+                }
+
+                return years;
+            } else {
+                return 0;
+            }
+        };
+
+        function isValidMarriageDate(currentObject) {
+            if ($(currentObject).attr('id').indexOf("DateFiled") > -1 || $(currentObject).attr('id').indexOf("DateofMarriage") > -1) {
+                if ($("#txtDateFiled").val() && $("#txtDateofMarriage").val()) {
+                    if (new Date($("#txtDateFiled").val()) > new Date($("#txtDateofMarriage").val())) {
+                        makeCode();
+
+                        return true;
+                    } else {
+                        alert("Filing date must be greater than Marriage date \n\n" + $(currentObject).val());
+
+                        setTimeout(function () {
+                            $(currentObject).focus();
+                        }, 0);
+
+                        document.getElementById($(currentObject).attr('id')).value = "";
+                        $(currentObject).select();
+
+                        return false;
                     }
-                    else
-                    {
-                                    return 0;
-                    }
-    
-    };
-     
-    
-    function isValidMarriageDate (currentObject) {
-                    if ($(currentObject).attr('id').indexOf("DateFiled") > -1 || $(currentObject).attr('id').indexOf("DateofMarriage") > -1)
-                    {
-                                    if($("#txtDateFiled").val() && $("#txtDateofMarriage").val())
-                                    {
-                                                    if (new Date($("#txtDateFiled").val()) > new Date($("#txtDateofMarriage").val()))
-                                                    {
-                                                                    makeCode();
-                                                                    return true;                                                                        
-                                                    }
-                                                    else
-                                                    {
-                                                                    alert("Filing date must be greater than Marriage date \n\n" + $(currentObject).val());
-                                                                    //alert("Invalid date format (YYYY-MM-DD) \n\n" + $(this).val());
-                                                                    //$(this).attr('value') = "";
-                                                                    setTimeout(function () { $(currentObject).focus(); }, 0);
-                                                                    //$(this).attr('value') = "";
-                                                                    document.getElementById($(currentObject).attr('id')).value = "";
-                                                                    $(currentObject).select();
-                                                                    return false;                                       
-                                                    }                              
-                                    }
-                                    else
-                                    {
-                                                    makeCode();
-                                                    return true;                                        
-                                    }                                                              
-                    }
-    };
-    
-    
-    
-    </SCRIPT>
+                } else {
+                    makeCode();
+
+                    return true;
+                }
+            }
+        };
+    </script>
     
     <!-- insert Adobe Analytics code here -->
     <!-- Do not remove - this Adobe Analytics tag - STARTS --> 	
