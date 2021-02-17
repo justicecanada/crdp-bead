@@ -251,170 +251,172 @@
         <p>Under the <cite>Privacy Act</cite>, you have the right to access your personal information retained by the Central Registry of Divorce Proceedings and to request corrections to it. Where correction is not possible, you have the right to request that a notation be attached to the information reflecting any correction requested but not made. If you require clarification about this <cite>Privacy Act</cite> Notice Statement, please contact our Access to Information and Privacy Office at <a href="mailto:ATIP-AIP@justice.gc.ca">ATIP-AIP@justice.gc.ca</a> or by phone at 613-907-3700. Please note that you have the right to file a complaint to the Office of the Privacy Commissioner of Canada regarding our handling of your personal information. For more information please visit the Office of the Privacy Commissioner’s website at <a href="https://www.priv.gc.ca/">www.priv.gc.ca</a> or contact the Office by phone at 1-800-281-1376.</p>
     </section>
 
-    <div class="well">
-        <p><strong>For Court Use Only</strong></p>
-        <p>The court shall send the completed form to the Central Registry of Divorce Proceedings, 284 Wellington Street Ottawa ON K1A 0H8 within <strong>7 days of the date on which the application for divorce is filed</strong>.</p>
+    <form id="CRDPRegistration">
+        <div class="well">
+            <p><strong>For Court Use Only</strong></p>
+            <p>The court shall send the completed form to the Central Registry of Divorce Proceedings, 284 Wellington Street Ottawa ON K1A 0H8 within <strong>7 days of the date on which the application for divorce is filed</strong>.</p>
 
-        <fieldset class="brdr-0">
-            <legend class="h5">Location where application for divorce is filed/transfered:</legend>
+            <fieldset class="brdr-0">
+                <legend class="h5">Location where application for divorce is filed/transfered:</legend>
+
+                <div class="form-group">
+                    <label for="CourtNoTo">Court Number:</label>
+                    <input id="CourtNoTo" type="text" class="form-control" maxlength="4" size="4">
+                </div>
+                <div class="form-group">
+                    <label for="RegistryNoTo">Divorce Registry Number:</label>
+                    <input id="RegistryNoTo" type="text" class="form-control" maxlength="6" size="6">
+                </div>
+            </fieldset>
+
+            <fieldset class="brdr-0">
+                <legend class="h5">Divorce Proceeding transferred from:</legend>
+
+                <div class="form-group">
+                    <label for="CourtNoFrom">Court Number:</label>
+                    <input id="CourtNoFrom" type="text" class="form-control" maxlength="4" size="4">
+                </div>
+                <div class="form-group">
+                    <label for="RegistryNoFrom">Divorce Registry Number:</label>
+                    <input id="RegistryNoFrom" type="text" class="form-control" maxlength="6" size="6">
+                </div>
+            </fieldset>
+
+            <fieldset class="brdr-0">
+                <legend class="h5">The prescribed fees are:</legend>
+                
+                <div class="radio">
+                    <label for="FeeQuarterly"><input type="radio" id="FeeQuarterly" name="FeeType" value="Q">Invoiced Quarterly</label>
+                </div>
+                <div class="radio">
+                    <label for="FeeExempt"><input type="radio" id="FeeExempt" name="FeeType" value="E">Exempt</label>
+                </div>
+                <div class="radio">
+                    <label for="FeeTransferred"><input type="radio" id="FeeTransferred" name="FeeType" value="E">Exempt-Application transferred</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <p>Information to be provided below <strong>is required</strong> and relates to the divorce application</p>
+
+        <div class="form-group">
+            <label for="Province" class="required">Province/Territory <strong class="required">(required)</strong>:</label>
+            <input id="Province" type="text" class="form-control" size="30" required="required">
+        </div>
+        <div class="form-group">
+            <label for="DateFiled" class="required">Date application for divorce is filed/transferred <strong class="required">(required)</strong>:</label>
+            <input id="DateFiled" type="date" class="form-control" required="required">
+        </div>
+        <div class="form-group">
+            <label for="DateMarriage" class="required">Date of marriage <strong class="required">(required)</strong>:</label>
+            <input id="DateMarriage" type="date" class="form-control" size="10" required="required">
+        </div>
+
+        <fieldset>
+            <legend class="h4">Applicant / Joint Applicant 1</legend>
+            <div class="clearfix"></div>
+
+            <fieldset class="brdr-0">
+                <legend class="h5 mrgn-tp-0 required">Applicant / Joint Applicant <strong class="required">(required)</strong>:</legend>
+                
+                <div class="radio">
+                    <label for="Applicant1"><input type="radio" id="Applicant1" name="Applicant1Type" required="required" value="false">Applicant</label>
+                </div>
+                <div class="radio">
+                    <label for="JointApplicant1"><input type="radio" id="JointApplicant1" name="Applicant1Type" required="required" value="true">Joint Applicant</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="brdr-0">
+                <legend class="h5 mrgn-tp-0 required">Gender on the day before the day of the marriage <strong class="required">(required)</strong>:</legend>
+
+                <div class="radio">
+                    <label for="Applicant1Male"><input type="radio" id="Applicant1Male" name="Applicant1Gender" required="required" value="M">Male</label>
+                </div>
+                <div class="radio">
+                    <label for="Applicant1Female"><input type="radio" id="Applicant1Female" name="Applicant1Gender" required="required" value="F">Female</label>
+                </div>
+                <div class="radio">
+                    <label for="Applicant1Another"><input type="radio" id="Applicant1Another" name="Applicant1Gender" required="required" value="A">Another gender</label>
+                </div>
+                <div class="radio">
+                    <label for="Applicant1NotAvailable"><input type="radio" id="Applicant1NotAvailable" name="Applicant1Gender" required="required" value="I">Information not available</label>
+                </div>
+            </fieldset>
 
             <div class="form-group">
-                <label for="CourtNoTo">Court Number:</label>
-                <input id="CourtNoTo" type="text" class="form-control" maxlength="4" size="4">
+                <label for="Applicant1Surname" class="required">Surname on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+                <input id="Applicant1Surname" type="text" class="form-control" size="60" required="required">
             </div>
             <div class="form-group">
-                <label for="RegistryNoTo">Divorce Registry Number:</label>
-                <input id="RegistryNoTo" type="text" class="form-control" maxlength="6" size="6">
-            </div>
-        </fieldset>
-
-        <fieldset class="brdr-0">
-            <legend class="h5">Divorce Proceeding transferred from:</legend>
-
-            <div class="form-group">
-                <label for="CourtNoFrom">Court Number:</label>
-                <input id="CourtNoFrom" type="text" class="form-control" maxlength="4" size="4">
+                <label for="Applicant1GivenNames" class="required">Given names on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+                <input id="Applicant1GivenNames" type="text" class="form-control" size="60" required="required">
             </div>
             <div class="form-group">
-                <label for="RegistryNoFrom">Divorce Registry Number:</label>
-                <input id="RegistryNoFrom" type="text" class="form-control" maxlength="6" size="6">
+                <label for="Applicant1DateBirth" class="required">Date of birth <strong class="required">(required)</strong>:</label>
+                <input id="Applicant1DateBirth" type="date" class="form-control" size="10" required="required">
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend class="h4">Respondent / Joint Applicant 2</legend>
+            <div class="clearfix"></div>
+
+            <fieldset class="brdr-0">
+                <legend class="h5 mrgn-tp-0 required">Respondent / Joint Applicant <strong class="required">(required)</strong>:</legend>
+                
+                <div class="radio">
+                    <label for="Respondent2"><input type="radio" id="Respondent2" name="Applicant2Type" required="required" value="false">Respondent</label>
+                </div>
+                <div class="radio">
+                    <label for="JointApplicant2"><input type="radio" id="JointApplicant2" name="Applicant2Type" required="required" value="true">Joint Applicant</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="brdr-0">
+                <legend class="h5 mrgn-tp-0 required">Gender on the day before the day of the marriage <strong class="required">(required)</strong>:</legend>
+
+                <div class="radio">
+                    <label for="Applicant2Male"><input type="radio" id="Applicant2Male" name="Applicant2Gender" required="required" value="M">Male</label>
+                </div>
+                <div class="radio">
+                    <label for="Applicant2Female"><input type="radio" id="Applicant2Female" name="Applicant2Gender" required="required" value="F">Female</label>
+                </div>
+                <div class="radio">
+                    <label for="Applicant2Another"><input type="radio" id="Applicant2Another" name="Applicant2Gender" required="required" value="A">Another gender</label>
+                </div>
+                <div class="radio">
+                    <label for="Applicant2NotAvailable"><input type="radio" id="Applicant2NotAvailable" name="Applicant2Gender" required="required" value="I">Information not available</label>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="Applicant2Surname" class="required">Surname on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+                <input id="Applicant2Surname" type="text" class="form-control" size="60" required="required">
+            </div>
+            <div class="form-group">
+                <label for="Applicant2GivenNames" class="required">Given names on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
+                <input id="Applicant2GivenNames" type="text" class="form-control" size="60" required="required">
+            </div>
+            <div class="form-group">
+                <label for="Applicant2DateBirth" class="required">Date of birth <strong class="required">(required)</strong>:</label>
+                <input id="Applicant2DateBirth" type="date" class="form-control" size="10" required="required">
             </div>
         </fieldset>
 
-        <fieldset class="brdr-0">
-            <legend class="h5">The prescribed fees are:</legend>
-            
-            <div class="radio">
-				<label for="FeeQuarterly"><input type="radio" id="FeeQuarterly" name="FeeType">Invoiced Quarterly</label>
-			</div>
-			<div class="radio">
-				<label for="FeeExempt"><input type="radio" id="FeeExempt" name="FeeType">Exempt</label>
-			</div>
-			<div class="radio">
-				<label for="FeeTransferred"><input type="radio" id="FeeTransferred" name="FeeType">Exempt-Application transferred</label>
-			</div>
-        </fieldset>
-    </div>
+        <div class="form-group brdr-tp">
+            <label for="DateSigned" class="required mrgn-tp-xl">Date signed <strong class="required">(required)</strong>:</label>
+            <input id="DateSigned" type="date" class="form-control" size="10" required="required">
+        </div>
 
-    <p>Information to be provided below <strong>is required</strong> and relates to the divorce application</p>
-
-    <div class="form-group">
-        <label for="Province" class="required">Province/Territory <strong class="required">(required)</strong>:</label>
-        <input id="Province" type="text" class="form-control" size="30" required="required">
-    </div>
-    <div class="form-group">
-        <label for="DateFiled" class="required">Date application for divorce is filed/transferred <strong class="required">(required)</strong>:</label>
-        <input id="DateFiled" type="date" class="form-control" required="required">
-    </div>
-    <div class="form-group">
-        <label for="DateMarriage" class="required">Date of marriage <strong class="required">(required)</strong>:</label>
-        <input id="DateMarriage" type="date" class="form-control" size="10" required="required">
-    </div>
-
-    <fieldset>
-        <legend class="h4">Applicant / Joint Applicant 1</legend>
-        <div class="clearfix"></div>
-
-        <fieldset class="brdr-0">
-            <legend class="h5 mrgn-tp-0 required">Applicant / Joint Applicant <strong class="required">(required)</strong>:</legend>
-            
-            <div class="radio">
-				<label for="Applicant1"><input type="radio" id="Applicant1" name="Applicant1Type" required="required">Applicant</label>
-			</div>
-			<div class="radio">
-				<label for="JointApplicant1"><input type="radio" id="JointApplicant1" name="Applicant1Type" required="required">Joint Applicant</label>
-			</div>
-        </fieldset>
-
-        <fieldset class="brdr-0">
-            <legend class="h5 mrgn-tp-0 required">Gender on the day before the day of the marriage <strong class="required">(required)</strong>:</legend>
-
-            <div class="radio">
-                <label for="Applicant1Male"><input type="radio" id="Applicant1Male" name="Applicant1Gender" required="required">Male</label>
-            </div>
-            <div class="radio">
-                <label for="Applicant1Female"><input type="radio" id="Applicant1Female" name="Applicant1Gender" required="required">Female</label>
-            </div>
-            <div class="radio">
-                <label for="Applicant1Another"><input type="radio" id="Applicant1Another" name="Applicant1Gender" required="required">Another gender</label>
-            </div>
-            <div class="radio">
-                <label for="Applicant1NotAvailable"><input type="radio" id="Applicant1NotAvailable" name="Applicant1Gender" required="required">Information not available</label>
-            </div>
-        </fieldset>
+        <div id="qrcode" style="width:100px; height:100px; margin-top:10px;"></div>
 
         <div class="form-group">
-            <label for="Applicant1Surname" class="required">Surname on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
-            <input id="Applicant1Surname" type="text" class="form-control" size="60" required="required">
+            <input type="button" class="btn btn-primary" id="PrintForm" value="Print form" onclick="generateQRCode()">
+            <input type="reset" class="btn btn-secondary" id="ClearFrom" value="Clear form">
         </div>
-        <div class="form-group">
-            <label for="Applicant1GivenNames" class="required">Given names on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
-            <input id="Applicant1GivenNames" type="text" class="form-control" size="60" required="required">
-        </div>
-        <div class="form-group">
-            <label for="Applicant1DateBirth" class="required">Date of birth <strong class="required">(required)</strong>:</label>
-            <input id="Applicant1DateBirth" type="date" class="form-control" size="10" required="required">
-        </div>
-    </fieldset>
-    
-    <fieldset>
-        <legend class="h4">Respondent / Joint Applicant 2</legend>
-        <div class="clearfix"></div>
+    </form>
 
-        <fieldset class="brdr-0">
-            <legend class="h5 mrgn-tp-0 required">Respondent / Joint Applicant <strong class="required">(required)</strong>:</legend>
-            
-            <div class="radio">
-				<label for="Respondent2"><input type="radio" id="Respondent2" name="Applicant2Type" required="required">Respondent</label>
-			</div>
-			<div class="radio">
-				<label for="JointApplicant2"><input type="radio" id="JointApplicant2" name="Applicant2Type" required="required">Joint Applicant</label>
-			</div>
-        </fieldset>
-
-        <fieldset class="brdr-0">
-            <legend class="h5 mrgn-tp-0 required">Gender on the day before the day of the marriage <strong class="required">(required)</strong>:</legend>
-
-            <div class="radio">
-                <label for="Applicant2Male"><input type="radio" id="Applicant2Male" name="Applicant2Gender" required="required">Male</label>
-            </div>
-            <div class="radio">
-                <label for="Applicant2Female"><input type="radio" id="Applicant2Female" name="Applicant2Gender" required="required">Female</label>
-            </div>
-            <div class="radio">
-                <label for="Applicant2Another"><input type="radio" id="Applicant2Another" name="Applicant2Gender" required="required">Another gender</label>
-            </div>
-            <div class="radio">
-                <label for="Applicant2NotAvailable"><input type="radio" id="Applicant2NotAvailable" name="Applicant2Gender" required="required">Information not available</label>
-            </div>
-        </fieldset>
-
-        <div class="form-group">
-            <label for="Applicant2Surname" class="required">Surname on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
-            <input id="Applicant2Surname" type="text" class="form-control" size="60" required="required">
-        </div>
-        <div class="form-group">
-            <label for="Applicant2GivenNames" class="required">Given names on the day before the day of the marriage <strong class="required">(required)</strong>:</label>
-            <input id="Applicant2GivenNames" type="text" class="form-control" size="60" required="required">
-        </div>
-        <div class="form-group">
-            <label for="Applicant2DateBirth" class="required">Date of birth <strong class="required">(required)</strong>:</label>
-            <input id="Applicant2DateBirth" type="date" class="form-control" size="10" required="required">
-        </div>
-    </fieldset>
-
-    <div class="form-group brdr-tp">
-        <label for="DateSigned" class="required mrgn-tp-xl">Date signed <strong class="required">(required)</strong>:</label>
-        <input id="DateSigned" type="date" class="form-control" size="10" required="required">
-    </div>
-
-    <div id="qrcode" style="width:100px; height:100px; margin-top:10px;"></div>
-
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" id="PrintForm" value="Print form">
-        <input type="reset" class="btn btn-secondary" id="ClearFrom" value="Clear form">
-    </div>
-    
     <dl id="wb-dtmd" class="no-print">
     <dt>Date modified:&#32;</dt>
     <dd><time property="dateModified">
