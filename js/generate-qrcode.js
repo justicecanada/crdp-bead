@@ -1,5 +1,4 @@
-function generateQRCode() {
-    const formId = "CRDPRegistration";
+const formId = "CRDPRegistration";
     const qrCodeId = "qrcode";
     const fieldNames = {
         "Cno": {
@@ -102,6 +101,8 @@ function generateQRCode() {
             sourceType: "id"
         }
     };
+
+function generateQRCode() {
     var qrcodeData = "";
 
     Object.keys(fieldNames).forEach(function(key) {
@@ -122,14 +123,8 @@ function generateQRCode() {
         qrcodeData += key + ":" + fieldValue + ";";
     });
 
-    // make sure any existing QR code is cleared
-    var qrcode = document.getElementById(qrCodeId);
-    qrcode.removeAttribute("title");
-    while(qrcode.firstChild) {
-        qrcode.removeChild(qrcode.lastChild);
-    }
-    
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
+    clearQRCode();
+    var qrcode = new QRCode(document.getElementById(qrCodeId), {
         width: 150,
         height: 150,
         colorDark: "#000000",
@@ -138,4 +133,12 @@ function generateQRCode() {
     });
 
     qrcode.makeCode(qrcodeData);
+}
+
+function clearQRCode() {
+    var qrcode = document.getElementById(qrCodeId);
+    qrcode.removeAttribute("title");
+    while(qrcode.firstChild) {
+        qrcode.removeChild(qrcode.lastChild);
+    }
 }
