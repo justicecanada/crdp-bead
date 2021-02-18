@@ -395,7 +395,7 @@
         <div id="qrcode"></div>
 
         <div class="form-group mrgn-tp-md">
-            <input type="button" class="btn btn-primary" id="PrintForm" value="Imprimer le formulaire"  onclick="generateQRCode()">
+            <input type="button" class="btn btn-primary" id="PrintForm" value="Imprimer le formulaire"  onclick="fillRegistrationPDF()">
             <input type="reset" class="btn btn-secondary" id="ClearForm" value="Remettre le formulaire à zéro" onclick="clearQRCode()">
         </div>
     </form>
@@ -483,7 +483,9 @@
     <!-- ScriptsEnd -->
     
     <!-- CustomScriptsStart -->
-    <script src="../../../js/generate-qrcode.js"></script>
+    <script src="../../../js/download.min.js"></script>
+    <script src="../../../js/pdf-lib.min.js"></script>
+    <script src="../../../js/fillRegistrationPDF.js"></script>
     <script type="text/javascript">
         $("input[id*='txt']").blur(function () {
             if ($(this).attr('id').indexOf("Date") > -1) {
