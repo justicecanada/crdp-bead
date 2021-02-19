@@ -124,7 +124,10 @@ function generateQRCode() {
         
         qrcodeData += key + ":" + fieldValue + ";";
     });
-
+    if (qrcodeData.endsWith(";")) { // scanning program doesn't expect a trailing semi-colon
+        qrcodeData = qrcodeData.substring(0, qrcodeData.length-1);
+    }
+    
     clearQRCode();
     var qrcode = new QRCode(document.getElementById(qrCodeId), {
         width: 150,
