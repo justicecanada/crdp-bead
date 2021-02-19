@@ -243,12 +243,12 @@
                 <legend class="h5">Tribunal où la demande de divorce est déposée/transférée&nbsp;:</legend>
 
                 <div class="form-group">
-                    <label for="CourtNoTo">Numéro du tribunal&nbsp;:</label>
-                    <input id="CourtNoTo" type="text" class="form-control" maxlength="4" size="4">
+                    <label for="CourtNoTo" class="required">Numéro du tribunal <strong class="required">(obligatoire)</strong>&nbsp;:</label>
+                    <input id="CourtNoTo" type="text" class="form-control" maxlength="4" size="4" required="required">
                 </div>
                 <div class="form-group">
-                    <label for="RegistryNoTo">Numéro d'enregistrement&nbsp;:</label>
-                    <input id="RegistryNoTo" type="text" class="form-control" maxlength="6" size="6">
+                    <label for="RegistryNoTo" class="required">Numéro d'enregistrement <strong class="required">(obligatoire)</strong>&nbsp;:</label>
+                    <input id="RegistryNoTo" type="text" class="form-control" maxlength="6" size="6" required="required">
                 </div>
             </fieldset>
 
@@ -266,16 +266,16 @@
             </fieldset>
 
             <fieldset class="brdr-0">
-                <legend class="h5">Les droits prévus sont&nbsp;:</legend>
+                <legend class="h5 required">Les droits prévus sont <strong class="required">(obligatoire)</strong>&nbsp;:</legend>
                 
                 <div class="radio">
-                    <label for="FeeQuarterly"><input type="radio" id="FeeQuarterly" name="FeeType" value="Q">Facturés par trimestre</label>
+                    <label for="FeeQuarterly"><input type="radio" id="FeeQuarterly" name="FeeType" value="Q" required="required">Facturés par trimestre</label>
                 </div>
                 <div class="radio">
-                    <label for="FeeExempt"><input type="radio" id="FeeExempt" name="FeeType" value="E">Exemptés</label>
+                    <label for="FeeExempt"><input type="radio" id="FeeExempt" name="FeeType" value="E" required="required">Exemptés</label>
                 </div>
                 <div class="radio">
-                    <label for="FeeTransferred"><input type="radio" id="FeeTransferred" name="FeeType" value="E">Exemptés-Demande transférée</label>
+                    <label for="FeeTransferred"><input type="radio" id="FeeTransferred" name="FeeType" value="E" required="required">Exemptés-Demande transférée</label>
                 </div>
             </fieldset>
         </div>
