@@ -340,4 +340,3 @@ async function fillRegistrationPDF() {
     generateQRCode();
     setTimeout(createPDF, 20);
 }
-  
