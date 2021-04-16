@@ -199,7 +199,7 @@ async function createPDF() {
 	const ApplicantSurnameField = form.getTextField('ApplicantSurname');
 	ApplicantSurnameField.setMaxLength(30);
 	const ApplicantGivenNameField = form.getTextField('ApplicantGivenName');
-	ApplicantGivenNameField.setMaxLength(30);
+	ApplicantGivenNameField.setMaxLength(60);
 	const ApplicantDateOfBirthYearField = form.getTextField('ApplicantDateOfBirthYear');
 	ApplicantDateOfBirthYearField.setMaxLength(30);
 	const ApplicantDateOfBirthMonthField = form.getTextField('ApplicantDateOfBirthMonth');
@@ -213,7 +213,7 @@ async function createPDF() {
 	const RespondentSurnameField = form.getTextField('RespondentSurname');
 	RespondentSurnameField.setMaxLength(30);
 	const RespondentGivenNameField = form.getTextField('RespondentGivenName');
-	RespondentGivenNameField.setMaxLength(30);
+	RespondentGivenNameField.setMaxLength(60);
 	const RespondentDateOfBirthYearField = form.getTextField('RespondentDateOfBirthYear');
 	RespondentDateOfBirthYearField.setMaxLength(30);
 	const RespondentDateOfBirthMonthField = form.getTextField('RespondentDateOfBirthMonth');
