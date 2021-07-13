@@ -1,5 +1,15 @@
 const formId = "CRDPRegistration";
 const qrCodeId = "qrcode";
+const formUrls = {
+	"en": {
+        path: "./pdf/",
+        filename: "form-eng.pdf"
+	},
+	"fr": {
+        path: "./pdf/",
+        filename: "form-fra.pdf"
+    }
+};
 const fieldNames = {
     "Cno": {
         fieldType: "Number",
@@ -151,12 +161,7 @@ function clearQRCode() {
 async function createPDF() {
 	var myImgSrc = document.getElementById("qrcode").getElementsByTagName("img")[0].src;
 
-	var formUrl = null;
-	if (document.documentElement.lang == 'en') {
-		formUrl = './pdf/form-eng.pdf';
-	} else if (document.documentElement.lang == 'fr') {
-		formUrl = './pdf/form-fra.pdf';
-	}
+	var formUrl = formUrls[document.documentElement.lang]["path"] + formUrls[document.documentElement.lang]["filename"];
 	
 	const arrayBuffer = await fetch(formUrl).then(res => res.arrayBuffer());
 	const pdfDoc = await PDFDocument.load(arrayBuffer);
@@ -329,11 +334,7 @@ async function createPDF() {
     form.flatten();
 	const pdfBytes = await pdfDoc.save();
 
-    if (document.documentElement.lang == 'en') {
-        download(pdfBytes, "form-eng.pdf", "application/pdf");
-	} else if (document.documentElement.lang == 'fr') {
-        download(pdfBytes, "form-fra.pdf", "application/pdf");
-    }
+    download(pdfBytes, formUrls[document.documentElement.lang]["filename"], "application/pdf");
 }
 
 async function fillRegistrationPDF() {
