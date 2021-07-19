@@ -3,11 +3,11 @@ const qrCodeId = "qrcode";
 const formUrls = {
 	"en": {
         path: "./pdf/",
-        filename: "form-eng.pdf"
+        filename: "form-formulaire-eng.pdf"
 	},
 	"fr": {
         path: "./pdf/",
-        filename: "form-fra.pdf"
+        filename: "formulaire-form-fra.pdf"
     }
 };
 const fieldNames = {
