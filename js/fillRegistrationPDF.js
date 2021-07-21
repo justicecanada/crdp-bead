@@ -159,7 +159,7 @@ function clearQRCode() {
 }
 
 async function createPDF() {
-	var myImgSrc = document.getElementById("qrcode").getElementsByTagName("img")[0].src;
+	var myImgSrc = document.getElementById(qrCodeId).getElementsByTagName("img")[0].src;
 
 	var formUrl = formUrls[document.documentElement.lang]["path"] + formUrls[document.documentElement.lang]["filename"];
 	
