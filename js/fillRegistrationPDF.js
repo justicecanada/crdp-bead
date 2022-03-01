@@ -144,7 +144,7 @@ function generateQRCode() {
         height: 150,
         colorDark: "#000000",
         colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.L
+        correctLevel: QRCode.CorrectLevel.M
     });
 
     qrcode.makeCode(qrcodeData);
